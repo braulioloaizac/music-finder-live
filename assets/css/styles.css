@@ -1,0 +1,29 @@
+:root{
+    --primary-color:rgb(159 237 236);
+    --font-color: rgb(39 41 41);
+    --text-color: black;
+    --button-color: blueviolet;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Ubuntu', sans-serif; */
+    background-color: var(--primary-color);
+}
+
+h1{
+    color: var(--font-color);
+}
+
+p{
+    color: var(--text-color);
+}
+
+.search{
+    padding: 10px 15px;
+    background: var(--button-color);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 500;
+}
