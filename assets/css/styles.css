@@ -9,21 +9,32 @@ body{
     font-family: 'Roboto', sans-serif;
     /* font-family: 'Ubuntu', sans-serif; */
     background-color: var(--primary-color);
+    text-align: center;
 }
 
 h1{
     color: var(--font-color);
+    font-weight: 800;
 }
 
 p{
     color: var(--text-color);
 }
 
+form{
+
+}
+
 .search{
-    padding: 10px 15px;
+    padding: 8px 15px;
     background: var(--button-color);
     border-radius: 5px;
     border: none;
     color: white;
     font-weight: 500;
+}
+
+.box{
+    padding: 8px 15px;
+    border-radius: 5px;
 }
