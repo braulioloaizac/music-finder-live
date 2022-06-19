@@ -1,20 +1,20 @@
 :root{
-    --primary-color:rgb(159 237 236);
-    --font-color: rgb(39 41 41);
+    --primary-color:rgb(216, 241, 241);
+    --font-color: rgb(65, 70, 70);
     --text-color: black;
     --button-color: blueviolet;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
-    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Ubuntu', sans-serif;
     background-color: var(--primary-color);
     text-align: center;
 }
 
 h1{
     color: var(--font-color);
-    font-weight: 800;
+    font-weight: 600;
 }
 
 p{
