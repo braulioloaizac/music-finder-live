@@ -6,7 +6,14 @@ var nResults = 8;
 
 var songTitle = "";
 
-$("form").on("click","#btn", function(event){
+var videoID = "";
+
+//Gets the lyrics array from localStorage
+var lyrics = JSON.parse(localStorage.getItem("lyrics")) || [];
+
+console.log(lyrics)
+
+$("div").on("click","#btn", function(event){
     event.preventDefault();
     
     songWords= $("#lyrics").val().trim();
@@ -18,6 +25,10 @@ $("form").on("click","#btn", function(event){
     }
 
     else{
+
+        //Saves the lyrics on localStorage
+        saveSearch(songWords);
+
         //Cleans the search box
         $("input").val('');
 
@@ -27,6 +38,11 @@ $("form").on("click","#btn", function(event){
 
 })
 
+$( function() {
+    $( "input" ).autocomplete({
+      source: lyrics
+    });
+  } );
 
 var getSong = function(){
   
@@ -49,6 +65,9 @@ var getSong = function(){
         success: function(data) {
             console.log(data);
             setInfo(data);
+        },
+        error: function(response){
+            console.log(response);
         }
     })
 }
@@ -66,28 +85,39 @@ var setInfo = function(data){
         artist = data.message.body.track_list[i].track.artist_name;
         
         //Creates the element on the DOM
-        var pSong= $('<li class="pSong">'+ songTitle +' by '+ artist +'</li>');
-        $("#songList").append(pSong); 
+        var pSong= $('<h4 class="pSong">'+ songTitle +' by '+ artist +'</h4>');
+        $("#songList").append(pSong);
+        
     }
     
 }
 
 
-$("#songList").on("click","li", function(event){
+$("#songList").on("click","h4", function(event){
     event.preventDefault();
+    
 
     songTitle = $(this).text();
-    videoFinder();
+
+    //Finds the video on Youtube
+    videoFinder(); 
+    
+
 })
 
+
+
+
+//Finds the video on yt and returns the videoID
 var videoFinder = function(){
     //Youtube API KEY AIzaSyAm8wLpmDSB6Bv6QoTuaAHBiw9wpjBIZyc
+    //AIzaSyDXrcpQjOpQeCCjFd_FSlNGYaD9yIzb9yg
 
     $.ajax({
         type: 'GET',
         url: 'https://www.googleapis.com/youtube/v3/search',
         data: {
-            key: 'AIzaSyAm8wLpmDSB6Bv6QoTuaAHBiw9wpjBIZyc',
+            key: 'AIzaSyBwNEuyZ4_Sdmu1_Dz9OgSXc-ABEvW6BuE',
             q: songTitle,
             part: 'snippet',
             maxResults: 1,
@@ -96,17 +126,27 @@ var videoFinder = function(){
             videoEmbeddable: true
         },
         success: function(data){
-            console.log(data)
-            videoShow(data);
+            videoID = data.items[0].id.videoId;
+            $("#player").attr("src","http://www.youtube.com/embed/"+videoID);
         },
         error: function(response){
-            console.log("Request Failed");
+            console.log(response);
         }
       });
     
 }
 
-var videoShow = function(data){
 
-    $("iframe").attr("src","http://www.youtube.com/embed/"+data.items[0].id.videoId);
-}
+function saveSearch(songWords) {
+
+    //Checks if that the box isn't empty
+    if (songWords !== "") {
+        
+        //Add the new city into the array
+        lyrics.push(songWords);
+        //Saves the array
+        localStorage.setItem("lyrics", JSON.stringify(lyrics));
+    }
+  }
+ 
+   

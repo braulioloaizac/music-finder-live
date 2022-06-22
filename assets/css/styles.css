@@ -8,7 +8,8 @@
 body{
     font-family: 'Roboto', sans-serif;
     font-family: 'Ubuntu', sans-serif;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: white;
     text-align: center;
 }
 
@@ -21,9 +22,6 @@ p{
     color: var(--text-color);
 }
 
-form{
-
-}
 
 .search{
     padding: 8px 15px;
@@ -37,4 +35,8 @@ form{
 .box{
     padding: 8px 15px;
     border-radius: 5px;
+}
+
+li{
+    background-color: var(--primary-color);
 }
