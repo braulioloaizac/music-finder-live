@@ -50,6 +50,7 @@ var getSong = function(){
     $.ajax({
         type: "GET",
         data: {
+            //Parameters
             apikey:"9d4d24aaeb01794337b053fca031b0f9",
             q_lyrics: songWords,
             s_track_rating: "desc",
@@ -119,6 +120,7 @@ var videoFinder = function(){
         type: 'GET',
         url: 'https://www.googleapis.com/youtube/v3/search',
         data: {
+            //Parameters
             key: 'AIzaSyBwNEuyZ4_Sdmu1_Dz9OgSXc-ABEvW6BuE',
             q: songTitle,
             part: 'snippet',
@@ -129,6 +131,7 @@ var videoFinder = function(){
         },
         success: function(data){
             videoID = data.items[0].id.videoId;
+            //Sets the video ID to the embed player
             $("#player").attr("src","https://www.youtube.com/embed/"+videoID);
         },
         error: function(response){
