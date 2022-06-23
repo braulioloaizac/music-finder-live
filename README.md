@@ -14,7 +14,7 @@ APIs: MusixMatch & YouTube
 
 #### Screenshot
 
-![alt text](./assets/img/snapshot.png"snapshot")
+![alt text](./assets/img/snapshot.png/ "snapshot")
 
 
 ##### Deployment
