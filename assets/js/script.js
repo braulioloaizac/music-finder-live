@@ -33,7 +33,7 @@ $("div").on("click","#btn", function(event){
         $("input").val('');
 
         getSong();
-        console.log(songWords);
+        //console.log(songWords);
     }
 
 })
@@ -85,15 +85,17 @@ var setInfo = function(data){
         artist = data.message.body.track_list[i].track.artist_name;
         
         //Creates the element on the DOM
-        var pSong= $('<h4 class="pSong">'+ songTitle +' by '+ artist +'</h4>');
+        var pSong= $('<li class="pSong">'+ songTitle +' by '+ artist +'</li>');
         $("#songList").append(pSong);
+
+        $("h2").removeClass("hidden")
         
     }
     
 }
 
 
-$("#songList").on("click","h4", function(event){
+$("#songList").on("click","li", function(event){
     event.preventDefault();
     
 
@@ -101,7 +103,7 @@ $("#songList").on("click","h4", function(event){
 
     //Finds the video on Youtube
     videoFinder(); 
-    
+    $('#ex1').modal();
 
 })
 
@@ -127,7 +129,7 @@ var videoFinder = function(){
         },
         success: function(data){
             videoID = data.items[0].id.videoId;
-            $("#player").attr("src","http://www.youtube.com/embed/"+videoID);
+            $("#player").attr("src","https://www.youtube.com/embed/"+videoID);
         },
         error: function(response){
             console.log(response);
@@ -142,11 +144,23 @@ function saveSearch(songWords) {
     //Checks if that the box isn't empty
     if (songWords !== "") {
         
-        //Add the new city into the array
+        //Makes the elements of the array lowercase
+        var lyricsLow = lyrics.map(element => {
+            return element.toLowerCase();
+        });
+        var songWordsLow = songWords.toLowerCase();
+        
+        //Checks if the song lyrics has been searched before
+    if(lyricsLow.includes(songWordsLow)){
+        return
+}
+    else{
+
+        //Add the lyrics into the array
         lyrics.push(songWords);
         //Saves the array
         localStorage.setItem("lyrics", JSON.stringify(lyrics));
     }
   }
- 
+}
    

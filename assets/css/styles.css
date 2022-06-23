@@ -1,42 +1,66 @@
-:root{
-    --primary-color:rgb(216, 241, 241);
-    --font-color: rgb(65, 70, 70);
-    --text-color: black;
-    --button-color: blueviolet;
-}
-
 body{
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
-    /* background-color: var(--primary-color); */
-    background-color: white;
-    text-align: center;
-}
-
-h1{
-    color: var(--font-color);
-    font-weight: 600;
-}
-
-p{
-    color: var(--text-color);
-}
-
-
-.search{
-    padding: 8px 15px;
-    background: var(--button-color);
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Anek Latin', sans-serif;
 }
 
 .box{
-    padding: 8px 15px;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-li{
-    background-color: var(--primary-color);
+
+
+ul li{
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3px;
+    text-align: center;
+    
 }
+
+ul li:hover{
+    background-color: rgba(42, 61, 231, 0.9);
+    cursor: pointer;
+    
+}
+
+.pSong{
+    background-color: rgba(170, 60, 204, 0.952);
+    color: white;
+    font-weight: 500;
+    padding: 5px;
+    text-align: center;
+    list-style: none;
+    margin: 10px 5px;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.pSong:hover{
+    background-color: rgba(150, 2, 196, 0.952);
+    cursor: pointer;
+}
+
+.ui-helper-hidden-accessible{
+    display: none;
+}
+
+
+.modal {
+    position: relative;
+    width: 100%;
+    height: 48%;
+    }
+
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }

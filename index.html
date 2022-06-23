@@ -6,33 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100;200;300;400;500;600;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
-    <!-- <link rel="stylesheet" href="./assets/css/styles.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
     <title>Music Finder Live 1.0</title>
 </head>
-<body class="inline-block text-center">
-    <img src="./assets/img/logo.png" alt="logo">
-    <p class ="text-2xl">This app search a song based on the lyrics </p>
-    <div type="submit" class="block pt-6">
-        <h3>Enter Lyrics</h3>
-        <input type="text" id="lyrics" class="box">
-        <button type="submit" class="search" id="btn">Search</button>
-    </div>
-    <div id="songList">
+<body>
+    
+    <img src="./assets/img/logo.png" class="mx-2 my-5" alt="logo">
+
+    <p class ="text-xl font-bold pt-6 mx-2 mb-4">Search for your favorite song with just a few words!!</p>
+    <div class="box flex-col px-20 py-5 mx-5 bg-teal-100 rounded shadow-md">
+        <div>
+            <input type="text" id="lyrics" placeholder="Enter lyrics here ....." class="px-2 py-2 mb-2 shadow-sm rounded">
+        </div>
         
+        <button type="submit" class="search bg-indigo-700 px-6 font-bold text-white rounded text-lg hover:bg-indigo-900" id="btn">Search</button>
+        
+        <h2 class="hidden text-2xl font-medium pt-6 mx-2 mb-2">Are you looking for:</h2>
+
+        <div id="songList" class="mt-4">
+        
+        </div>
+    
     </div>
+    
 
     <!-- The modal will contain the embed player -->
     <div id="ex1" class="modal">
-        <iframe id="player" width="640" height="360" frameborder="0"></iframe>
+        <iframe id="player" width="640" height="360" frameborder="0" class="responsive-iframe"></iframe>
     </div>
-  
-    <!-- Link to open the modal -->
-    <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
